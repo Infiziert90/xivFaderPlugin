@@ -30,6 +30,10 @@ public enum State
     IsMoving = 20,
     Hover = 21,
     Occupied = 22,
+    LeftTrigger = 23,
+    RightTrigger = 24,
+    LeftBumper = 25,
+    RightBumper = 26,
 }
 
 
@@ -62,6 +66,10 @@ public static class StateUtil
             State.Combat => Language.StateCombat,
             State.Hover => Language.StateHover,
             State.Occupied => Language.StateOccupied,
+            State.LeftTrigger => Language.StateLeftTrigger,
+            State.RightTrigger => Language.StateRightTrigger,
+            State.LeftBumper => Language.StateLeftBumper,
+            State.RightBumper => Language.StateRightBumper,
             _ => throw new ArgumentOutOfRangeException(nameof(state), state, null)
         };
     }
@@ -91,5 +99,9 @@ public static class StateUtil
         State.ShiftKeyFocus,
         State.Hover,
         State.Occupied,
+        State.LeftTrigger,
+        State.RightTrigger,
+        State.LeftBumper,
+        State.RightBumper,
     ];
 }

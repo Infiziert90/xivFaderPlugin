@@ -1,3 +1,4 @@
+using Dalamud.Game.ClientState.GamePad;
 using FFXIVClientStructs.FFXIV.Client.Game.Fate;
 using FFXIVClientStructs.FFXIV.Client.Game.UI;
 using FFXIVClientStructs.FFXIV.Client.Graphics;
@@ -169,6 +170,13 @@ public static unsafe class Addon
 
     public static bool InFate()
         => FateManager.Instance()->CurrentFate != null;
+
+    #endregion
+
+    #region Controller Input Check
+
+    public static bool IsControllerInputHeld(GamepadButtons button)
+        => Plugin.GamepadState.Raw(button) != 0;
 
     #endregion
 

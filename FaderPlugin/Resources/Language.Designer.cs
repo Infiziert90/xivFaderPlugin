@@ -897,6 +897,25 @@ namespace faderPlugin.Resources {
             }
         }
         
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Left Bumper Held.
+        /// </summary>
+        internal static string StateLeftBumper {
+            get {
+                return ResourceManager.GetString("StateLeftBumper", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Left Trigger Held.
+        /// </summary>
+        internal static string StateLeftTrigger {
+            get {
+                return ResourceManager.GetString("StateLeftTrigger", resourceCulture);
+            }
+        }
+        
         /// <summary>
         ///   Looks up a localized string similar to Mounted.
         /// </summary>
@@ -942,6 +961,24 @@ namespace faderPlugin.Resources {
             }
         }
         
+        /// <summary>
+        ///   Looks up a localized string similar to Right Bumper Held.
+        /// </summary>
+        internal static string StateRightBumper {
+            get {
+                return ResourceManager.GetString("StateRightBumper", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Right Trigger Held.
+        /// </summary>
+        internal static string StateRightTrigger {
+            get {
+                return ResourceManager.GetString("StateRightTrigger", resourceCulture);
+            }
+        }
+                
         /// <summary>
         ///   Looks up a localized string similar to SHIFT Key Focus.
         /// </summary>

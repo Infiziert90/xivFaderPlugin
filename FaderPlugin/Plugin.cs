@@ -36,6 +36,8 @@ public class Plugin : IDalamudPlugin
     [PluginService] public static IGameGui GameGui { get; set; } = null!;
     [PluginService] public static ITargetManager TargetManager { get; set; } = null!;
     [PluginService] public static IDataManager Data { get; private set; } = null!;
+    [PluginService] public static IGamepadState GamepadState { get; private set; } = null!;
+    
     // Configuration and windows.
     public readonly Configuration Config;
     private readonly WindowSystem WindowSystem = new("Fader");
@@ -220,6 +222,11 @@ public class Plugin : IDalamudPlugin
         UpdateState(State.WeaponUnsheathed, Addon.IsWeaponUnsheathed());
         UpdateState(State.InSanctuary, Addon.InSanctuary());
         UpdateState(State.InFate, Addon.InFate());
+
+        UpdateState(State.LeftTrigger, Addon.IsControllerInputHeld(Dalamud.Game.ClientState.GamePad.GamepadButtons.L2));
+        UpdateState(State.RightTrigger, Addon.IsControllerInputHeld(Dalamud.Game.ClientState.GamePad.GamepadButtons.R2));
+        UpdateState(State.LeftBumper, Addon.IsControllerInputHeld(Dalamud.Game.ClientState.GamePad.GamepadButtons.L1));
+        UpdateState(State.RightBumper, Addon.IsControllerInputHeld(Dalamud.Game.ClientState.GamePad.GamepadButtons.R1));
 
         var target = TargetManager.Target;
         UpdateState(State.EnemyTarget, target?.ObjectKind == ObjectKind.BattleNpc);

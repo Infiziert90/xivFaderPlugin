@@ -430,4 +430,16 @@ Configuration of the element that was selected first will override the rest.</va
   <data name="StateOccupied" xml:space="preserve">
       <value>Occupied</value>
   </data>
+  <data name="StateLeftBumper" xml:space="preserve">
+    <value>Left Bumper Held</value>
+  </data>
+  <data name="StateLeftTrigger" xml:space="preserve">
+    <value>Left Trigger Held</value>
+  </data>
+  <data name="StateRightBumper" xml:space="preserve">
+    <value>Right Bumper Held</value>
+  </data>
+  <data name="StateRightTrigger" xml:space="preserve">
+    <value>Right Trigger Held</value>
+  </data>
 </root>
