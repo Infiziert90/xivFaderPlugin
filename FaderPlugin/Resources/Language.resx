@@ -481,4 +481,7 @@ Configuration of the element that was selected first will override the rest.</va
   <data name="ElementTooltipStatusConditional" xml:space="preserve">
     <value>Player conditional status (when split into 4 separate elements)</value>
   </data>
+  <data name="StateGatheringNodeTarget" xml:space="preserve">
+    <value>Gathering Node Target</value>
+  </data>
 </root>

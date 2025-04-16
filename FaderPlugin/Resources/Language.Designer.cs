@@ -962,6 +962,15 @@ namespace faderPlugin.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Gathering Node Target.
+        /// </summary>
+        internal static string StateGatheringNodeTarget {
+            get {
+                return ResourceManager.GetString("StateGatheringNodeTarget", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Hover.
         /// </summary>
         internal static string StateHover {

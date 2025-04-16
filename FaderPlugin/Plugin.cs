@@ -243,6 +243,7 @@ public class Plugin : IDalamudPlugin
         UpdateState(State.EnemyTarget, target?.ObjectKind == ObjectKind.BattleNpc);
         UpdateState(State.PlayerTarget, target?.ObjectKind == ObjectKind.Player);
         UpdateState(State.NPCTarget, target?.ObjectKind == ObjectKind.EventNpc);
+        UpdateState(State.GatheringNodeTarget, target?.ObjectKind == ObjectKind.GatheringPoint);
         UpdateState(State.Crafting, Condition[ConditionFlag.Crafting]);
         UpdateState(State.Gathering, Condition[ConditionFlag.Gathering]);
         UpdateState(State.Mounted, Condition[ConditionFlag.Mounted] || Condition[ConditionFlag.Mounted2]);

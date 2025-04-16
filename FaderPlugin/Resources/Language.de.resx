@@ -126,4 +126,7 @@
   <data name="ElementTooltipStatusConditional" xml:space="preserve">
     <value />
   </data>
+  <data name="StateGatheringNodeTarget" xml:space="preserve">
+    <value />
+  </data>
 </root>
