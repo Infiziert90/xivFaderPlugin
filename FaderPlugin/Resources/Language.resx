@@ -484,4 +484,7 @@ Configuration of the element that was selected first will override the rest.</va
   <data name="StateGatheringNodeTarget" xml:space="preserve">
     <value>Gathering Node Target</value>
   </data>
+  <data name="ElementCosmicExotablet" xml:space="preserve">
+    <value>Cosmic Exotablet</value>
+  </data>
 </root>

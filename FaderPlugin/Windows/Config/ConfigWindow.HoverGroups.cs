@@ -5,7 +5,6 @@ using Dalamud.Interface.Utility.Raii;
 using faderPlugin.Resources;
 using FaderPlugin.Data;
 using ImGuiNET;
-using System;
 using System.Linq;
 using System.Numerics;
 
@@ -117,44 +116,44 @@ public partial class ConfigWindow
 
             using var table = ImRaii.Table("ElementsTable", 2, ImGuiTableFlags.NoBordersInBody | ImGuiTableFlags.Resizable);
 
-            foreach (var elementObj in Enum.GetValues<Element>())
+            foreach (var element in ElementUtil.OrderedElements)
             {
-                if (elementObj is Element element && !element.ShouldIgnoreElement())
+                if (element.ShouldIgnoreElement())
+                    continue;
+
+                ImGui.TableNextColumn();
+                var elementName = ElementUtil.GetElementName(element);
+                var isInGroup = selectedGroup.Elements.Contains(element);
+
+                if (ImGui.Checkbox(elementName, ref isInGroup))
                 {
-                    ImGui.TableNextColumn();
-                    var elementName = ElementUtil.GetElementName(element);
-                    var isInGroup = selectedGroup.Elements.Contains(element);
-
-                    if (ImGui.Checkbox(elementName, ref isInGroup))
+                    if (isInGroup)
                     {
-                        if (isInGroup)
-                        {
-                            if (!selectedGroup.Elements.Contains(element))
-                                selectedGroup.Elements.Add(element);
-                        }
-                        else
-                        {
-                            selectedGroup.Elements.Remove(element);
-                        }
-                        Configuration.Save();
+                        if (!selectedGroup.Elements.Contains(element))
+                            selectedGroup.Elements.Add(element);
                     }
-
-                    if (ImGui.IsItemHovered())
+                    else
                     {
-                        var addonNames = ElementUtil.GetAddonName(element);
-                        if (addonNames.Length == 0)
+                        selectedGroup.Elements.Remove(element);
+                    }
+                    Configuration.Save();
+                }
+
+                if (ImGui.IsItemHovered())
+                {
+                    var addonNames = ElementUtil.GetAddonName(element);
+                    if (addonNames.Length == 0)
+                        continue;
+
+                    var color = ImGui.GetColorU32(ImGuiColors.HealerGreen);
+                    var drawlist = ImGui.GetBackgroundDrawList();
+                    foreach (var addonName in addonNames)
+                    {
+                        var addonPosition = Addon.GetAddonPosition(addonName);
+                        if (!addonPosition.IsPresent)
                             continue;
 
-                        var color = ImGui.GetColorU32(ImGuiColors.HealerGreen);
-                        var drawlist = ImGui.GetBackgroundDrawList();
-                        foreach (var addonName in addonNames)
-                        {
-                            var addonPosition = Addon.GetAddonPosition(addonName);
-                            if (!addonPosition.IsPresent)
-                                continue;
-
-                            drawlist.AddRect(addonPosition.Start, addonPosition.End, color, 0, ImDrawFlags.None, 5.0f * ImGuiHelpers.GlobalScale);
-                        }
+                        drawlist.AddRect(addonPosition.Start, addonPosition.End, color, 0, ImDrawFlags.None, 5.0f * ImGuiHelpers.GlobalScale);
                     }
                 }
             }

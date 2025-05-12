@@ -218,7 +218,7 @@ public partial class ConfigWindow
         {
             if (child.Success)
             {
-                foreach (var element in Enum.GetValues<Element>())
+                foreach (var element in ElementUtil.OrderedElements)
                 {
                     if (element.ShouldIgnoreElement())
                         continue;

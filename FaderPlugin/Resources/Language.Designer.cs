@@ -151,6 +151,15 @@ namespace faderPlugin.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cosmic Exotablet.
+        /// </summary>
+        internal static string ElementCosmicExotablet {
+            get {
+                return ResourceManager.GetString("ElementCosmicExotablet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Cross Hotbar.
         /// </summary>
         internal static string ElementCrossHotbar {
