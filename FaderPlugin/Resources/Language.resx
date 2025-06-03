@@ -304,9 +304,6 @@ Configuration of the element that was selected first will override the rest.</va
   <data name="ElementCastbar" xml:space="preserve">
     <value>Cast Bar</value>
   </data>
-  <data name="ElementExperienceBar" xml:space="preserve">
-    <value>Experience Bar</value>
-  </data>
   <data name="ElementInventoryGrid" xml:space="preserve">
     <value>Inventory Grid</value>
   </data>
@@ -483,5 +480,29 @@ Configuration of the element that was selected first will override the rest.</va
   </data>
   <data name="StateGatheringNodeTarget" xml:space="preserve">
     <value>Gathering Node Target</value>
+  </data>
+  <data name="ElementCosmicExotablet" xml:space="preserve">
+    <value>Cosmic Exotablet</value>
+  </data>
+  <data name="ElementAllianceList1" xml:space="preserve">
+    <value>Alliance List 1</value>
+  </data>
+  <data name="ElementAllianceList2" xml:space="preserve">
+    <value>Alliance List 2</value>
+  </data>
+  <data name="ElementOccultCrescentHud" xml:space="preserve">
+    <value>Occult Crescent Hud</value>
+  </data>
+  <data name="ElementBozjaHud" xml:space="preserve">
+    <value>Bozja Hud</value>
+  </data>
+  <data name="ElementEurekaElementalHud" xml:space="preserve">
+    <value>Eureka Elemental Wheel</value>
+  </data>
+  <data name="ElementEurekaLogosHud" xml:space="preserve">
+    <value>Eureka Logos Actions</value>
+  </data>
+  <data name="ElementExperienceBar" xml:space="preserve">
+    <value>Experience Bar</value>
   </data>
 </root>

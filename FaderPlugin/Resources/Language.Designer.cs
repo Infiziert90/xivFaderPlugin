@@ -124,6 +124,33 @@ namespace faderPlugin.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Alliance List 1.
+        /// </summary>
+        internal static string ElementAllianceList1 {
+            get {
+                return ResourceManager.GetString("ElementAllianceList1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Alliance List 2.
+        /// </summary>
+        internal static string ElementAllianceList2 {
+            get {
+                return ResourceManager.GetString("ElementAllianceList2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bozja Hud.
+        /// </summary>
+        internal static string ElementBozjaHud {
+            get {
+                return ResourceManager.GetString("ElementBozjaHud", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Cast Bar.
         /// </summary>
         internal static string ElementCastbar {
@@ -151,6 +178,15 @@ namespace faderPlugin.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cosmic Exotablet.
+        /// </summary>
+        internal static string ElementCosmicExotablet {
+            get {
+                return ResourceManager.GetString("ElementCosmicExotablet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Cross Hotbar.
         /// </summary>
         internal static string ElementCrossHotbar {
@@ -174,6 +210,24 @@ namespace faderPlugin.Resources {
         internal static string ElementDutyList {
             get {
                 return ResourceManager.GetString("ElementDutyList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Eureka Elemental Wheel.
+        /// </summary>
+        internal static string ElementEurekaElementalHud {
+            get {
+                return ResourceManager.GetString("ElementEurekaElementalHud", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Eureka Logos Actions.
+        /// </summary>
+        internal static string ElementEurekaLogosHud {
+            get {
+                return ResourceManager.GetString("ElementEurekaLogosHud", resourceCulture);
             }
         }
         
@@ -336,6 +390,15 @@ namespace faderPlugin.Resources {
         internal static string ElementNameplate {
             get {
                 return ResourceManager.GetString("ElementNameplate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Occult Crescent Hud.
+        /// </summary>
+        internal static string ElementOccultCrescentHud {
+            get {
+                return ResourceManager.GetString("ElementOccultCrescentHud", resourceCulture);
             }
         }
         
