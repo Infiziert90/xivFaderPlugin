@@ -9,6 +9,7 @@ using Dalamud.IoC;
 using Dalamud.Plugin;
 using Dalamud.Plugin.Services;
 using faderPlugin.Resources;
+using FaderPlugin.Animation;
 using FaderPlugin.Data;
 using FaderPlugin.Windows.Config;
 using FFXIVClientStructs.FFXIV.Component.GUI;
@@ -56,7 +57,11 @@ public class Plugin : IDalamudPlugin
     // Opacity Management
     private readonly Dictionary<string, float> CurrentAlphas = [];
     private readonly Dictionary<string, float> TargetAlphas = [];
-    private readonly Dictionary<string, bool> FinishingHover = [];
+    // smallest possible alpha change
+    private const float AlphaTolerance = 1f / 255f;
+
+    // Tween management
+    private readonly Dictionary<string, Tween> Tweens = [];
 
     // Commands
     private const string CommandName = "/pfader";
@@ -368,59 +373,46 @@ public class Plugin : IDalamudPlugin
             LastNonDefaultEntry.Clear();
         }
 
+        var now = Environment.TickCount64;
         foreach (var addonName in AddonNameToElement.Keys)
         {
             var element = AddonNameToElement[addonName];
             var elementConfig = Config.GetElementConfig(element);
-            var isHovered = AddonHoverStates.TryGetValue(addonName, out var hovered) && hovered;
+            var currentAddonHovered = AddonHoverStates.TryGetValue(addonName, out var hovered) && hovered;
 
-            var candidate = GetCandidateConfig(addonName, elementConfig, isHovered);
+            var candidate = GetCandidateConfig(addonName, elementConfig, currentAddonHovered);
             var currentAlpha = CurrentAlphas.TryGetValue(addonName, out var alpha) ? alpha : Config.DefaultAlpha;
-            var targetAlpha = CalculateTargetAlpha(candidate, isHovered, currentAlpha);
+            var targetAlpha = GetTargetAlpha(addonName, candidate, currentAddonHovered, currentAlpha);
 
             TargetAlphas[addonName] = targetAlpha;
 
-            var isHoverState = (candidate.state == State.Hover);
+            // animation
+            var transitionSpeed = GetTransitionSpeed(element, currentAlpha, targetAlpha);
+            var duration = transitionSpeed > 0f ? (long)((1f / transitionSpeed) * 1000f) : 0L;
 
-            if (isHovered || (FinishingHover.TryGetValue(addonName, out var finishing) && finishing))
+            if (duration <= 0)
             {
-                if (isHoverState)
-                    FinishingHover[addonName] = true;
-
-                if (currentAlpha < candidate.Opacity - 0.001f)
-                {
-                    targetAlpha = candidate.Opacity;
-                    TargetAlphas[addonName] = targetAlpha;
-                }
-                else if (!isHovered)
-                {
-                    FinishingHover[addonName] = false;
-                }
+                CurrentAlphas[addonName] = targetAlpha;
+                Addon.SetAddonOpacity(addonName, targetAlpha);
+                Tweens.Remove(addonName);
             }
             else
             {
-                FinishingHover[addonName] = false;
+                if (!Tweens.TryGetValue(addonName, out var tween) || Math.Abs(tween.EndValue - targetAlpha) > AlphaTolerance)
+                {
+                    tween = new Tween(currentAlpha, targetAlpha, now, duration, Easing.Linear);
+                    Tweens[addonName] = tween;
+                }
+
+                var newAlpha = tween.Value(now);
+                CurrentAlphas[addonName] = newAlpha;
+                Addon.SetAddonOpacity(addonName, newAlpha);
+
+                if (tween.IsComplete(now))
+                    Tweens.Remove(addonName);
             }
 
-            float transitionSpeed;
-            if (Config.FadeOverrides.TryGetValue(element, out var fadeOverride) && fadeOverride.UseCustomFadeTimes)
-            {
-                transitionSpeed = (targetAlpha > currentAlpha)
-                    ? fadeOverride.EnterTransitionSpeedOverride
-                    : fadeOverride.ExitTransitionSpeedOverride;
-            }
-            else
-            {
-                transitionSpeed = (targetAlpha > currentAlpha)
-                    ? Config.EnterTransitionSpeed
-                    : Config.ExitTransitionSpeed;
-            }
-
-
-            currentAlpha = MoveTowards(currentAlpha, targetAlpha, transitionSpeed * (float)Framework.UpdateDelta.TotalSeconds);
-            CurrentAlphas[addonName] = currentAlpha;
-            Addon.SetAddonOpacity(addonName, currentAlpha);
-
+            // visibility
             var isElementDisabled = Config.DisabledElements.TryGetValue(element, out var disabled) && disabled;
             var shouldHide = isElementDisabled && currentAlpha < 0.05f;
             Addon.SetAddonVisibility(addonName, !shouldHide);
@@ -468,24 +460,51 @@ public class Plugin : IDalamudPlugin
         return candidate!;
     }
 
-    private static float CalculateTargetAlpha(ConfigEntry candidate, bool isHovered, float currentAlpha)
+    /// <summary>
+    /// Returns the native Opacity of an addon when Relative Opacity is enabled. Returns 1f when disabled.
+    /// </summary>
+    private float GetAlphaModifier(string addonName)
     {
-        if (candidate.state == State.Hover)
-        {
-            return isHovered ? candidate.Opacity : currentAlpha;
-        }
-        return candidate.Opacity;
+        if (!Config.RelativeOpacity)
+            return 1f;
+
+
+        return Addon.GetSavedOpacity(addonName);
     }
 
-    /// <summary>
-    /// Smoothly moves current value toward target value.
-    /// </summary>
-    private static float MoveTowards(float current, float target, float maxDelta)
+    private float GetTargetAlpha(string addonName, ConfigEntry candidate, bool currentAddonHovered, float currentAlpha)
     {
-        // TODO: add easing functions perhaps?
-        if (Math.Abs(target - current) <= maxDelta)
-            return target;
-        return current + Math.Sign(target - current) * maxDelta;
+        var anyAddonHovered = candidate.state == State.Hover;
+        // if any addon is hovered and it isn't the current addon then keep the opacity the same for the current addon otherwise go to target
+        var baseAlpha = anyAddonHovered && !currentAddonHovered ? currentAlpha : candidate.Opacity;
+
+        var alphaModifier = GetAlphaModifier(addonName);
+        var targetAlpha = baseAlpha * alphaModifier;
+
+        if (anyAddonHovered)
+        {
+            var fullAlpha = candidate.Opacity * alphaModifier;
+            if (currentAlpha < fullAlpha - AlphaTolerance)
+            {
+                // override targetAlpha so that current addon doesn't get locked at currentAlpha when another addon is hovered
+                return fullAlpha;
+            }
+        }
+        return targetAlpha;
+    }
+
+    private float GetTransitionSpeed(Element element, float currentAlpha, float targetAlpha)
+    {
+        if (Config.FadeOverrides.TryGetValue(element, out var fadeOverride) && fadeOverride.UseCustomFadeTimes)
+        {
+            return targetAlpha > currentAlpha
+                ? fadeOverride.EnterTransitionSpeedOverride
+                : fadeOverride.ExitTransitionSpeedOverride;
+        }
+
+        return targetAlpha > currentAlpha
+            ? Config.EnterTransitionSpeed
+            : Config.ExitTransitionSpeed;
     }
 
     /// <summary>
@@ -520,7 +539,7 @@ public class Plugin : IDalamudPlugin
             TargetAlphas[addonName] = savedOpacity;
             Addon.SetAddonOpacity(addonName, savedOpacity);
             Addon.SetAddonVisibility(addonName, true);
-            FinishingHover[addonName] = false;
+            Tweens.Remove(addonName);
         }
     }
 
@@ -537,7 +556,7 @@ public class Plugin : IDalamudPlugin
         foreach (var kvp in TargetAlphas)
         {
             if (!CurrentAlphas.TryGetValue(kvp.Key, out var currentAlpha) ||
-                Math.Abs(currentAlpha - kvp.Value) > 0.001f)
+                Math.Abs(currentAlpha - kvp.Value) > AlphaTolerance)
             {
                 return false;
             }

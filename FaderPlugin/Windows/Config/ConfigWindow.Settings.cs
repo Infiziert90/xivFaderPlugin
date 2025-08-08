@@ -18,7 +18,7 @@ public partial class ConfigWindow
 {
     private List<ConfigEntry> SelectedConfig = [];
     private readonly List<Element> SelectedElements = [];
-
+    private const float AlphaTolerance = 1f / 255f;
     private Constants.OverrideKeys CurrentOverrideKey => (Constants.OverrideKeys)Configuration.OverrideKey;
 
     private void Settings()
@@ -168,7 +168,7 @@ public partial class ConfigWindow
 
                 ImGui.TableNextColumn();
                 ImGui.SetNextItemWidth(-1);
-                var enterTransitionTimeMs = Configuration.EnterTransitionSpeed > 0.0001f
+                var enterTransitionTimeMs = Configuration.EnterTransitionSpeed > AlphaTolerance
                     ? (1.0f / Configuration.EnterTransitionSpeed) * 1000.0f
                     : 1000.0f;
                 if (Helper.SliderFloatDiscrete("##enter_transition_time_ms", ref enterTransitionTimeMs, 10.0f, 2000.0f, 10.0f, "{0:0} ms"))
@@ -176,6 +176,7 @@ public partial class ConfigWindow
                     Configuration.EnterTransitionSpeed = 1000.0f / enterTransitionTimeMs;
                     Configuration.Save();
                 }
+
                 //
                 // Exit Transition Time
                 //
@@ -186,12 +187,29 @@ public partial class ConfigWindow
 
                 ImGui.TableNextColumn();
                 ImGui.SetNextItemWidth(-1);
-                var exitTransitionTimeMs = Configuration.ExitTransitionSpeed > 0.0001f
+                var exitTransitionTimeMs = Configuration.ExitTransitionSpeed > AlphaTolerance
                     ? (1.0f / Configuration.ExitTransitionSpeed) * 1000.0f
                     : 1000.0f;
                 if (Helper.SliderFloatDiscrete("##exit_transition_time_ms", ref exitTransitionTimeMs, 10.0f, 2000.0f, 10.0f, "{0:0} ms"))
                 {
                     Configuration.ExitTransitionSpeed = 1000.0f / exitTransitionTimeMs;
+                    Configuration.Save();
+                }
+
+                //
+                // Relative Opacity
+                //
+                ImGui.TableNextRow();
+                ImGui.TableNextColumn();
+                ImGui.TextUnformatted(Language.SettingsRelativeOpacity);
+                ImGuiComponents.HelpMarker(Language.SettingsRelativeOpacityTooltip);
+
+                ImGui.TableNextColumn();
+                ImGui.SetNextItemWidth(-1);
+                var relativeOpacity = Configuration.RelativeOpacity;
+                if (ImGui.Checkbox("##relative_opacity_enabled", ref relativeOpacity))
+                {
+                    Configuration.RelativeOpacity = relativeOpacity;
                     Configuration.Save();
                 }
             }
@@ -463,7 +481,7 @@ public partial class ConfigWindow
 
                 var itemWidth = 200.0f * ImGuiHelpers.GlobalScale;
                 ImGui.SetNextItemWidth(itemWidth);
-                var fadeInTime = Configuration.FadeOverrides[selectedElement].EnterTransitionSpeedOverride > 0.0001f
+                var fadeInTime = Configuration.FadeOverrides[selectedElement].EnterTransitionSpeedOverride > AlphaTolerance
                     ? (1.0f / Configuration.FadeOverrides[selectedElement].EnterTransitionSpeedOverride) * 1000.0f
                     : 1000.0f;
                 if (Helper.SliderFloatDiscrete($"##{elementName}-fadeIn", ref fadeInTime, 10.0f, 2000.0f, 10.0f, "{0:0} ms"))
@@ -479,7 +497,7 @@ public partial class ConfigWindow
                 ImGui.TableNextColumn();
 
                 ImGui.SetNextItemWidth(itemWidth);
-                var fadeOutTime = Configuration.FadeOverrides[selectedElement].ExitTransitionSpeedOverride > 0.0001f
+                var fadeOutTime = Configuration.FadeOverrides[selectedElement].ExitTransitionSpeedOverride > AlphaTolerance
                     ? (1.0f / Configuration.FadeOverrides[selectedElement].ExitTransitionSpeedOverride) * 1000.0f
                     : 1000.0f;
                 if (Helper.SliderFloatDiscrete($"##{elementName}-fadeOut", ref fadeOutTime, 10.0f, 2000.0f, 10.0f, "{0:0} ms"))

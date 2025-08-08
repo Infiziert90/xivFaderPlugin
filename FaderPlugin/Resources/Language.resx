@@ -505,4 +505,12 @@ Configuration of the element that was selected first will override the rest.</va
   <data name="ElementExperienceBar" xml:space="preserve">
     <value>Experience Bar</value>
   </data>
+  <data name="SettingsRelativeOpacityTooltip" xml:space="preserve">
+    <value>If enabled, all plugin opacity values are multiplied by your native HUD-layout opacity. 
+This way the Plugin only operates within the bounds of your stock UI.
+E.g., native 60% * plugin 50% → resulting UI at 30%.</value>
+  </data>
+  <data name="SettingsRelativeOpacity" xml:space="preserve">
+    <value>Relative Opacity</value>
+  </data>
 </root>

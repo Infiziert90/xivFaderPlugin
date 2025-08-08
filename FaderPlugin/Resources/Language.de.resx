@@ -153,4 +153,10 @@
   <data name="ElementExperienceBar" xml:space="preserve">
     <value />
   </data>
+  <data name="SettingsRelativeOpacityTooltip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="SettingsRelativeOpacity" xml:space="preserve">
+    <value />
+  </data>
 </root>
