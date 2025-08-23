@@ -194,6 +194,22 @@ public partial class ConfigWindow
                     Configuration.ExitTransitionSpeed = 1000.0f / exitTransitionTimeMs;
                     Configuration.Save();
                 }
+
+                //
+                // MagitekStratagem Integration
+                //
+                ImGui.TableNextRow();
+                ImGui.TableNextColumn();
+                ImGui.TextUnformatted("Language.SettingsMagitekStratagemIntegration");
+                ImGuiComponents.HelpMarker("Language.SettingsMagitekStratagemIntegrationTooltip");
+                ImGui.TableNextColumn();
+                ImGui.SetNextItemWidth(-1);
+                var magitekIntegration = Configuration.UseMagitekStratagemIntegration;
+                if (ImGui.Checkbox("##magitek_integration", ref magitekIntegration))
+                {
+                    Configuration.UseMagitekStratagemIntegration = magitekIntegration;
+                    Configuration.Save();
+                }
             }
         }
 
