@@ -58,24 +58,22 @@ public static unsafe class Addon
     public static void SetAddonVisibility(string name, bool isVisible)
     {
         var addonPointer = Plugin.GameGui.GetAddonByName(name);
-        if (addonPointer == nint.Zero)
+        if (addonPointer.IsNull)
             return;
-
-        var addon = (AtkUnitBase*)addonPointer;
 
         if (isVisible)
         {
             // Restore the element position if previously hidden.
-            if (StoredPositions.TryGetValue(name, out var pos) && (addon->X == -9999 || addon->Y == -9999))
-                addon->SetPosition(pos.X, pos.Y);
+            if (StoredPositions.TryGetValue(name, out var pos) && (addonPointer.X == -9999 || addonPointer.Y == -9999))
+                ((AtkUnitBase*)addonPointer.Address)->SetPosition(pos.X, pos.Y);
         }
         else
         {
             // Save position, then move off-screen.
-            if (addon->X != -9999 && addon->Y != -9999)
-                StoredPositions[name] = (addon->X, addon->Y);
+            if (addonPointer.X != -9999 && addonPointer.Y != -9999)
+                StoredPositions[name] = (addonPointer.X, addonPointer.Y);
 
-            addon->SetPosition(-9999, -9999);
+            ((AtkUnitBase*)addonPointer.Address)->SetPosition(-9999, -9999);
         }
     }
 
@@ -91,7 +89,7 @@ public static unsafe class Addon
         if (addonPointer == nint.Zero)
             return;
 
-        var addon = (AtkUnitBase*)addonPointer;
+        var addon = (AtkUnitBase*)addonPointer.Address;
         if (addon->UldManager.NodeListCount <= 0)
             return;
 
@@ -118,7 +116,7 @@ public static unsafe class Addon
         if (addonPointer == nint.Zero)
             return AddonPosition.Empty;
 
-        var addon = (AtkUnitBase*)addonPointer;
+        var addon = (AtkUnitBase*)addonPointer.Address;
         var width = (short)addon->GetScaledWidth(true);
         var height = (short)addon->GetScaledHeight(true);
 
@@ -178,8 +176,8 @@ public static unsafe class Addon
         if (hotbar == nint.Zero || crossbar == nint.Zero)
             return true;
 
-        var hotbarAddon = (AddonActionBar*)hotbar;
-        var crossbarAddon = (AddonActionCross*)hotbar;
+        var hotbarAddon = (AddonActionBar*)hotbar.Address;
+        var crossbarAddon = (AddonActionCross*)hotbar.Address;
 
         try
         {
