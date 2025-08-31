@@ -4,6 +4,7 @@ using Dalamud.Game.ClientState.Objects.Enums;
 using Dalamud.Game.Command;
 using Dalamud.Game.Text;
 using Dalamud.Game.Text.SeStringHandling;
+using Dalamud.Interface.Utility;
 using Dalamud.Interface.Windowing;
 using Dalamud.IoC;
 using Dalamud.Plugin;
@@ -11,6 +12,7 @@ using Dalamud.Plugin.Services;
 using faderPlugin.Resources;
 using FaderPlugin.Animation;
 using FaderPlugin.Data;
+using FaderPlugin.Integrations;
 using FaderPlugin.Windows.Config;
 using FFXIVClientStructs.FFXIV.Component.GUI;
 using Dalamud.Bindings.ImGui;
@@ -78,6 +80,9 @@ public class Plugin : IDalamudPlugin
     private static readonly Element[] AllElements = Enum.GetValues<Element>();
     private static readonly State[] AllStates = Enum.GetValues<State>();
 
+    // Integrations
+    public readonly MagitekStratagemIntegration MagitekStratagemIntegration;
+
     public Plugin()
     {
         LoadConfig(out Config);
@@ -119,6 +124,9 @@ public class Plugin : IDalamudPlugin
         // Recover from previous misconfiguration
         if (Config.DefaultDelay == 0)
             Config.DefaultDelay = 2000;
+
+        // Initialize Integrations
+        MagitekStratagemIntegration = new MagitekStratagemIntegration();
     }
 
     public void Dispose()
@@ -133,6 +141,9 @@ public class Plugin : IDalamudPlugin
 
         ConfigWindow.Dispose();
         WindowSystem.RemoveWindow(ConfigWindow);
+
+        // Dispose of integrations
+        MagitekStratagemIntegration.Dispose();
     }
 
 
@@ -322,12 +333,42 @@ public class Plugin : IDalamudPlugin
         var mousePos = ImGui.GetMousePos();
         AddonHoverStates.Clear();
 
+        Vector2? screenEyePos = GetEyetrackScreenPosition();
+
         foreach (var addonName in AddonNameToElement.Keys)
         {
             // Compute the hover state once per addon.
             AddonHoverStates[addonName] = IsAddonHovered(addonName, mousePos);
+            if (screenEyePos != null)
+            {
+                // Use the eyetracking position as a second mouse.
+                AddonHoverStates[addonName] |= IsAddonHovered(addonName, screenEyePos.Value);
+            }
         }
         ApplyHoverGroups();
+    }
+
+
+    private Vector2? GetEyetrackScreenPosition()
+    {
+        if (Config.UseMagitekStratagemIntegration)
+        {
+            var trackerData = MagitekStratagemIntegration.GetTrackerData();
+            if (trackerData != null && trackerData.Length >= 3)
+            {
+                var screenSize = ImGuiHelpers.MainViewport.Size;
+                // Convert to screen coordinates
+                // Tracker data is -1, to 1 range, relative to screen center.
+                // This assumes the user is playing in full screen mode:
+                return new Vector2(
+                     (trackerData[1] + 1) * screenSize.X / 2,
+                     // Fader uses Y=0 at the top, so we need to invert Y
+                     screenSize.Y - ((trackerData[2] + 1) * screenSize.Y / 2)
+                 );
+            }
+        }
+
+        return null;
     }
 
 
