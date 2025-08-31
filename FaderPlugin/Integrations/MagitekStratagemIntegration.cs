@@ -5,26 +5,24 @@ namespace FaderPlugin.Integrations;
 
 public sealed class MagitekStratagemIntegration : IDisposable
 {
-    private readonly IDalamudPluginInterface PluginInterface;
     private const string DataKey = "MagitekStratagemPlugin.TrackerData";
 
     private float[]? TrackerData;
 
-    public MagitekStratagemIntegration(IDalamudPluginInterface pluginInterface)
+    public MagitekStratagemIntegration()
     {
-        PluginInterface = pluginInterface;
     }
 
     public void Dispose()
     {
-        PluginInterface.RelinquishData(DataKey);
+        Plugin.PluginInterface.RelinquishData(DataKey);
     }
 
     public float[]? GetTrackerData()
     {
         if (TrackerData == null)
         {
-            TrackerData = PluginInterface.GetData<float[]>(DataKey);
+            TrackerData = Plugin.PluginInterface.GetData<float[]>(DataKey);
         }
 
         return TrackerData;

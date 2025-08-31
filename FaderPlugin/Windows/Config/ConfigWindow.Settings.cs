@@ -218,8 +218,8 @@ public partial class ConfigWindow
                 //
                 ImGui.TableNextRow();
                 ImGui.TableNextColumn();
-                ImGui.TextUnformatted("Language.SettingsMagitekStratagemIntegration");
-                ImGuiComponents.HelpMarker("Language.SettingsMagitekStratagemIntegrationTooltip");
+                ImGui.TextUnformatted("Magitek Stratagem Integration");
+                ImGuiComponents.HelpMarker("Use Magitek Stratagem's eyelook position as a second mouse for hover events.");
                 ImGui.TableNextColumn();
                 ImGui.SetNextItemWidth(-1);
                 var magitekIntegration = Configuration.UseMagitekStratagemIntegration;

@@ -126,7 +126,7 @@ public class Plugin : IDalamudPlugin
             Config.DefaultDelay = 2000;
 
         // Initialize Integrations
-        MagitekStratagemIntegration = new MagitekStratagemIntegration(PluginInterface);
+        MagitekStratagemIntegration = new MagitekStratagemIntegration();
     }
 
     public void Dispose()
