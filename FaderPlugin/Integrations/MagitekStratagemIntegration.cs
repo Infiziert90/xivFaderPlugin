@@ -21,9 +21,7 @@ public sealed class MagitekStratagemIntegration : IDisposable
     public float[]? GetTrackerData()
     {
         if (TrackerData == null)
-        {
             TrackerData = Plugin.PluginInterface.GetData<float[]>(DataKey);
-        }
 
         return TrackerData;
     }
