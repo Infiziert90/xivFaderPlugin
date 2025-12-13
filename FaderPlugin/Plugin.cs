@@ -422,8 +422,8 @@ public class Plugin : IDalamudPlugin
 
     private ConfigEntry GetCandidateConfig(string addonName, List<ConfigEntry> elementConfig, bool isHovered)
     {
-        // Prefer Hover state when applicable.
-        var candidate = isHovered
+        // Prefer Hover state when configured and applicable.
+        var candidate = (isHovered && Config.HoverPriority)
             ? elementConfig.FirstOrDefault(e => e.state == State.Hover)
             : null;
 
