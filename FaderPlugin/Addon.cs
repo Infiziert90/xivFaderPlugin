@@ -28,10 +28,10 @@ public static unsafe class Addon
     public static float GetSavedOpacity(string addonName)
     {
         var config = AddonConfig.Instance();
-        if (config == null || config->ModuleData == null)
+        if (config == null || config->ActiveDataSet == null)
             return 1.0f;
 
-        var data = config->ModuleData;
+        var data = config->ActiveDataSet;
         var addons = data->HudLayoutConfigEntries;     // 440
         var layouts = data->HudLayoutNames.Length;     // 4
         var addonsPerLayout = addons.Length / layouts; // 440/4 = 110
