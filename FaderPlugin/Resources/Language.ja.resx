@@ -117,46 +117,400 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ChatPluginDisabled" xml:space="preserve">
+    <value>Faderプラグインを無効化しました。</value>
+  </data>
+  <data name="ChatPluginEnabled" xml:space="preserve">
+    <value>Faderプラグインを有効化しました。</value>
+  </data>
+  <data name="AboutAuthor" xml:space="preserve">
+    <value>作成者：</value>
+  </data>
+  <data name="AboutVersion" xml:space="preserve">
+    <value>バージョン：</value>
+  </data>
+  <data name="AboutIssues" xml:space="preserve">
+    <value>不具合</value>
+  </data>
+  <data name="AboutThread" xml:space="preserve">
+    <value>Discordスレッド</value>
+  </data>
+  <data name="AboutKoFi" xml:space="preserve">
+    <value>Ko-Fiで支援</value>
+  </data>
+  <data name="TabAbout" xml:space="preserve">
+    <value>概要</value>
+  </data>
+  <data name="TabSettings" xml:space="preserve">
+    <value>設定</value>
+  </data>
+  <data name="SettingsGeneralHeader" xml:space="preserve">
+    <value>全般設定</value>
+  </data>
+  <data name="SettingsFocusKey" xml:space="preserve">
+    <value>ユーザーフォーカスキー：</value>
+  </data>
+  <data name="SettingsFocusKeyTooltip" xml:space="preserve">
+    <value>このキーを押し続けると、インターフェースが「UserFocus」列の設定に切り替わります。</value>
+  </data>
+  <data name="SettingsFocusHotbarUnlock" xml:space="preserve">
+    <value>ホットバーのロック解除時は常にユーザーフォーカスにする</value>
+  </data>
+  <data name="SettingsFocusHotbarUnlockTooltip" xml:space="preserve">
+    <value>ホットバーまたはクロスホットバーをロック解除すると、常に「UserFocus」列の設定に切り替わります。</value>
+  </data>
+  <data name="SettingsEmoteActivity" xml:space="preserve">
+    <value>エモートでチャットアクティビティを検出</value>
+  </data>
+  <data name="SettingsSystemTrigger" xml:space="preserve">
+    <value>システムメッセージでチャットアクティビティを検出</value>
+  </data>
+  <data name="SettingsDelay" xml:space="preserve">
+    <value>既定の遅延：</value>
+  </data>
+  <data name="SettingsDelayTooltip" xml:space="preserve">
+    <value>「Idle」列に戻るまでの時間。</value>
+  </data>
+  <data name="SettingsChatActivityTimeout" xml:space="preserve">
+    <value>チャットアクティビティのタイムアウト：</value>
+  </data>
+  <data name="SettingsMultiSelectionHint" xml:space="preserve">
+    <value>ヒント：複数の要素を同時に選択して編集できます。
+最初に選択した要素の設定が他の要素に優先して適用されます。</value>
+  </data>
+  <data name="SettingsElementConfiguration" xml:space="preserve">
+    <value>{0}の設定</value>
+  </data>
+  <data name="SettingsOthers" xml:space="preserve">
+    <value>その他</value>
+  </data>
+  <data name="SettingsSyncToElement" xml:space="preserve">
+    <value>選択項目を{0}に同期</value>
+  </data>
+  <data name="Seconds" xml:space="preserve">
+    <value>秒</value>
+  </data>
+  <data name="StateEnemyTarget" xml:space="preserve">
+    <value>敵ターゲット</value>
+  </data>
+  <data name="StatePlayerTarget" xml:space="preserve">
+    <value>プレイヤーターゲット</value>
+  </data>
+  <data name="StateNPCTarget" xml:space="preserve">
+    <value>NPCターゲット</value>
+  </data>
+  <data name="StateWeaponUnsheathed" xml:space="preserve">
+    <value>武器を抜刀</value>
+  </data>
+  <data name="StateInSanctuary" xml:space="preserve">
+    <value>安全地帯内</value>
+  </data>
+  <data name="StateInFateArea" xml:space="preserve">
+    <value>F.A.T.E.エリア内</value>
+  </data>
+  <data name="StateIsMoving" xml:space="preserve">
+    <value>移動中</value>
+  </data>
+  <data name="StateIslandSanctuary" xml:space="preserve">
+    <value>無人島開拓</value>
+  </data>
+  <data name="StateChatActivity" xml:space="preserve">
+    <value>チャットアクティビティ</value>
+  </data>
+  <data name="StateChatFocus" xml:space="preserve">
+    <value>チャットフォーカス</value>
+  </data>
+  <data name="StateUserFocus" xml:space="preserve">
+    <value>ユーザーフォーカス</value>
+  </data>
+  <data name="StateAltKey" xml:space="preserve">
+    <value>Altキーのフォーカス</value>
+  </data>
+  <data name="StateCtrlKey" xml:space="preserve">
+    <value>Ctrlキーのフォーカス</value>
+  </data>
+  <data name="StateShiftKey" xml:space="preserve">
+    <value>Shiftキーのフォーカス</value>
+  </data>
+  <data name="StateNone" xml:space="preserve">
+    <value>なし</value>
+  </data>
+  <data name="StateDefault" xml:space="preserve">
+    <value>既定</value>
+  </data>
+  <data name="StateDuty" xml:space="preserve">
+    <value>コンテンツ</value>
+  </data>
+  <data name="StateCrafting" xml:space="preserve">
+    <value>製作</value>
+  </data>
+  <data name="StateGathering" xml:space="preserve">
+    <value>採集</value>
+  </data>
+  <data name="StateMounted" xml:space="preserve">
+    <value>騎乗中</value>
+  </data>
+  <data name="StateCombat" xml:space="preserve">
+    <value>戦闘中</value>
+  </data>
+  <data name="SettingsShow" xml:space="preserve">
+    <value>表示</value>
+  </data>
+  <data name="SettingsHide" xml:space="preserve">
+    <value>非表示</value>
+  </data>
+  <data name="SettingsUnknown" xml:space="preserve">
+    <value>不明</value>
+  </data>
+  <data name="ElementHotbar1" xml:space="preserve">
+    <value>ホットバー1</value>
+  </data>
+  <data name="ElementHotbar2" xml:space="preserve">
+    <value>ホットバー2</value>
+  </data>
+  <data name="ElementHotbar3" xml:space="preserve">
+    <value>ホットバー3</value>
+  </data>
+  <data name="ElementHotbar4" xml:space="preserve">
+    <value>ホットバー4</value>
+  </data>
+  <data name="ElementHotbar5" xml:space="preserve">
+    <value>ホットバー5</value>
+  </data>
+  <data name="ElementHotbar6" xml:space="preserve">
+    <value>ホットバー6</value>
+  </data>
+  <data name="ElementHotbar7" xml:space="preserve">
+    <value>ホットバー7</value>
+  </data>
+  <data name="ElementHotbar8" xml:space="preserve">
+    <value>ホットバー8</value>
+  </data>
+  <data name="ElementHotbar9" xml:space="preserve">
+    <value>ホットバー9</value>
+  </data>
+  <data name="ElementHotbar10" xml:space="preserve">
+    <value>ホットバー10</value>
+  </data>
+  <data name="ElementCrossHotbar" xml:space="preserve">
+    <value>クロスホットバー</value>
+  </data>
+  <data name="ElementPetHotbar" xml:space="preserve">
+    <value>ペットホットバー</value>
+  </data>
+  <data name="ElementContextActionHotbar" xml:space="preserve">
+    <value>コンテキストアクションホットバー</value>
+  </data>
+  <data name="ElementCastbar" xml:space="preserve">
+    <value>詠唱バー</value>
+  </data>
+  <data name="ElementInventoryGrid" xml:space="preserve">
+    <value>インベントリグリッド</value>
+  </data>
+  <data name="ElementScenarioGuide" xml:space="preserve">
+    <value>メインクエストガイド</value>
+  </data>
+  <data name="ElementIslekeepIndex" xml:space="preserve">
+    <value>島牧場主の手記</value>
+  </data>
+  <data name="ElementDutyList" xml:space="preserve">
+    <value>コンテンツ情報</value>
+  </data>
+  <data name="ElementServerInformation" xml:space="preserve">
+    <value>サーバー情報</value>
+  </data>
+  <data name="ElementMainMenu" xml:space="preserve">
+    <value>メインコマンド</value>
+  </data>
+  <data name="ElementTargetInfo" xml:space="preserve">
+    <value>ターゲット情報</value>
+  </data>
+  <data name="ElementPartyList" xml:space="preserve">
+    <value>パーティリスト</value>
+  </data>
+  <data name="ElementLimitBreak" xml:space="preserve">
+    <value>リミットブレイク</value>
+  </data>
+  <data name="ElementStatusEnhancements" xml:space="preserve">
+    <value>強化ステータス</value>
+  </data>
+  <data name="ElementStatusEnfeeblements" xml:space="preserve">
+    <value>弱体ステータス</value>
+  </data>
+  <data name="ElementStatusOther" xml:space="preserve">
+    <value>その他のステータス</value>
+  </data>
+  <data name="ElementUnknown" xml:space="preserve">
+    <value>不明</value>
+  </data>
+  <data name="ElementJob" xml:space="preserve">
+    <value>ジョブUI</value>
+  </data>
+  <data name="ElementCurrency" xml:space="preserve">
+    <value>通貨</value>
+  </data>
+  <data name="ElementQuestLog" xml:space="preserve">
+    <value>クエストログ</value>
+  </data>
+  <data name="ElementChat" xml:space="preserve">
+    <value>チャット</value>
+  </data>
+  <data name="ElementMinimap" xml:space="preserve">
+    <value>ミニマップ</value>
+  </data>
+  <data name="ElementNameplate" xml:space="preserve">
+    <value>ネームプレート</value>
+  </data>
+  <data name="ElementParameters" xml:space="preserve">
+    <value>パラメータ</value>
+  </data>
+  <data name="ElementStatus" xml:space="preserve">
+    <value>ステータス</value>
+  </data>
+  <data name="ElementTooltipChat" xml:space="preserve">
+    <value>フォーカスされている間は常に表示されるはずですが、一部の設定では不具合が発生する場合があります。</value>
+  </data>
+  <data name="ElementTooltipCrosshotbar" xml:space="preserve">
+    <value>「WXHBをXHBとは別に配置する」オプションを有効にしていない限り、WXHBは常に表示されます。</value>
+  </data>
+  <data name="ElementTooltipActionHotbar" xml:space="preserve">
+    <value>追加アクション（無人島開拓、特殊コンテンツ、特定のバトルなど）</value>
+  </data>
+  <data name="ElementTooltipPetHotbar" xml:space="preserve">
+    <value>ペットやマウントのアクション</value>
+  </data>
+  <data name="ElementTooltipJob" xml:space="preserve">
+    <value>ジョブ専用UI</value>
+  </data>
+  <data name="ElementTooltipStatus" xml:space="preserve">
+    <value>プレイヤーのステータス（3つの要素に分割していない場合）</value>
+  </data>
+  <data name="ElementTooltipStatusEnfeeblements" xml:space="preserve">
+    <value>プレイヤーの弱体効果（3つの要素に分割した場合）</value>
+  </data>
+  <data name="ElementTooltipStatusEnhancements" xml:space="preserve">
+    <value>プレイヤーの強化効果（3つの要素に分割した場合）</value>
+  </data>
+  <data name="ElementTooltipStatusOther" xml:space="preserve">
+    <value>プレイヤーのその他のステータス（3つの要素に分割した場合）</value>
+  </data>
+  <data name="StateHover" xml:space="preserve">
+    <value>ホバー</value>
+  </data>
+  <data name="Milliseconds" xml:space="preserve">
+    <value>ミリ秒</value>
+  </data>
+  <data name="Opacity" xml:space="preserve">
+    <value>不透明度</value>
+  </data>
+  <data name="SettingsDisable" xml:space="preserve">
+    <value>要素を無効化</value>
+  </data>
+  <data name="SettingsDisableTooltip" xml:space="preserve">
+    <value>状態の不透明度が0.05未満になると、その要素を完全に無効化します。</value>
+  </data>
+  <data name="SettingsEnterTransition" xml:space="preserve">
+    <value>フェードイン時間：</value>
+  </data>
+  <data name="SettingsEnterTransitionTooltip" xml:space="preserve">
+    <value>要素がフェードインするまでの時間（ミリ秒）。</value>
+  </data>
+  <data name="SettingsExitTransition" xml:space="preserve">
+    <value>フェードアウト時間：</value>
+  </data>
+  <data name="SettingsExitTransitionTooltip" xml:space="preserve">
+    <value>要素がフェードアウトするまでの時間（ミリ秒）。</value>
+  </data>
+  <data name="StateWarning" xml:space="preserve">
+    <value>警告：無効化した要素はホバーできません！</value>
+  </data>
+  <data name="StateOccupied" xml:space="preserve">
+    <value>占有中</value>
+  </data>
+  <data name="TabHoverGroups" xml:space="preserve">
+    <value>ホバーグループ</value>
+  </data>
+  <data name="HoverGroupNewGroup" xml:space="preserve">
+    <value>新規グループ</value>
+  </data>
+  <data name="HoverGroupsAddGroup" xml:space="preserve">
+    <value>グループを追加</value>
+  </data>
+  <data name="HoverGroupsElements" xml:space="preserve">
+    <value>グループ内の要素</value>
+  </data>
+  <data name="HoverGroupsHint" xml:space="preserve">
+    <value>グループを選択して詳細を編集してください。</value>
+  </data>
+  <data name="HoverGroupsTutorialBody1" xml:space="preserve">
+    <value>左側から既存のグループを選択するか、「グループを追加」をクリックして新規作成します。</value>
+  </data>
+  <data name="HoverGroupsTutorialBody2" xml:space="preserve">
+    <value>チェックボックスを使ってUI要素をグループに割り当てます。</value>
+  </data>
+  <data name="HoverGroupsTutorialBody3" xml:space="preserve">
+    <value>グループに含まれる要素のいずれかにホバーすると、</value>
+  </data>
+  <data name="HoverGroupsTutorialBody4" xml:space="preserve">
+    <value>グループ内のすべての要素がホバー状態になります。</value>
+  </data>
+  <data name="HoverGroupsTutorialHeader" xml:space="preserve">
+    <value>使い方：</value>
+  </data>
   <data name="SettingsFadeOverride" xml:space="preserve">
-    <value />
+    <value>フェード設定を上書き</value>
+  </data>
+  <data name="StateLeftBumper" xml:space="preserve">
+    <value>LBを押下中</value>
+  </data>
+  <data name="StateLeftTrigger" xml:space="preserve">
+    <value>LTを押下中</value>
+  </data>
+  <data name="StateRightBumper" xml:space="preserve">
+    <value>RBを押下中</value>
+  </data>
+  <data name="StateRightTrigger" xml:space="preserve">
+    <value>RTを押下中</value>
   </data>
   <data name="ElementStatusConditional" xml:space="preserve">
-    <value />
+    <value>状況別ステータス</value>
   </data>
   <data name="ElementTooltipStatusConditional" xml:space="preserve">
-    <value />
+    <value>プレイヤーの条件付きステータス（4つの要素に分割した場合）</value>
   </data>
   <data name="StateGatheringNodeTarget" xml:space="preserve">
-    <value />
+    <value>採集ノードターゲット</value>
   </data>
   <data name="ElementCosmicExotablet" xml:space="preserve">
-    <value />
+    <value>コズミック・エクゾタブレット</value>
   </data>
   <data name="ElementAllianceList1" xml:space="preserve">
-    <value />
+    <value>アライアンスリスト1</value>
   </data>
   <data name="ElementAllianceList2" xml:space="preserve">
-    <value />
+    <value>アライアンスリスト2</value>
   </data>
   <data name="ElementOccultCrescentHud" xml:space="preserve">
-    <value />
+    <value>オカルタ・クレセントHUD</value>
   </data>
   <data name="ElementBozjaHud" xml:space="preserve">
-    <value />
+    <value>ボズヤHUD</value>
   </data>
   <data name="ElementEurekaElementalHud" xml:space="preserve">
-    <value />
+    <value>エウレカ・エレメンタルホイール</value>
   </data>
   <data name="ElementEurekaLogosHud" xml:space="preserve">
-    <value />
+    <value>エウレカ・ロゴスアクション</value>
   </data>
   <data name="ElementExperienceBar" xml:space="preserve">
-    <value />
+    <value>経験値バー</value>
   </data>
   <data name="SettingsRelativeOpacityTooltip" xml:space="preserve">
-    <value />
+    <value>有効にすると、プラグインで設定した不透明度はHUDレイアウト本来の不透明度と乗算されます。
+この機能により、プラグインは標準UIの範囲内でのみ動作します。
+例：標準60% × プラグイン50% -&gt; 最終的なUIは30%。</value>
   </data>
   <data name="SettingsRelativeOpacity" xml:space="preserve">
-    <value />
+    <value>相対不透明度</value>
   </data>
 </root>
