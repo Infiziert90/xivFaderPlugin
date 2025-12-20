@@ -438,7 +438,7 @@ Die Konfiguration vom ersten ausgewählten Element wird die restlichen überschr
     <value>Gruppe Hinzufügen</value>
   </data>
   <data name="HoverGroupsElements" xml:space="preserve">
-    <value>Elemente in der Gruppe:</value>
+    <value>Elemente in der Gruppe</value>
   </data>
   <data name="HoverGroupsHint" xml:space="preserve">
     <value>Wähle eine Gruppe aus um ihre Details zu editieren.</value>
