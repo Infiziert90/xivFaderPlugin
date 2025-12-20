@@ -212,6 +212,23 @@ public partial class ConfigWindow
                     Configuration.RelativeOpacity = relativeOpacity;
                     Configuration.Save();
                 }
+
+                //
+                // Hover Priority
+                //
+                ImGui.TableNextRow();
+                ImGui.TableNextColumn();
+                ImGui.TextUnformatted(Language.SettingsHoverPriority);
+                ImGuiComponents.HelpMarker(Language.SettingsHoverPriorityTooltip);
+
+                ImGui.TableNextColumn();
+                ImGui.SetNextItemWidth(-1);
+                var hoverPriority = Configuration.HoverPriority;
+                if (ImGui.Checkbox("##hover_priority_enabled", ref hoverPriority))
+                {
+                    Configuration.HoverPriority = hoverPriority;
+                    Configuration.Save();
+                }
             }
         }
 

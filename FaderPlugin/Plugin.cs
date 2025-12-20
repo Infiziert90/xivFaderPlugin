@@ -421,14 +421,17 @@ public class Plugin : IDalamudPlugin
 
     private ConfigEntry GetCandidateConfig(string addonName, List<ConfigEntry> elementConfig, bool isHovered)
     {
-        // Prefer Hover state when applicable.
-        var candidate = isHovered
+        // Prefer Hover state when configured and applicable.
+        var candidate = (isHovered && Config.HoverPriority)
             ? elementConfig.FirstOrDefault(e => e.state == State.Hover)
             : null;
 
-        // Fallback: choose an active non-hover state or default.
-        candidate ??= elementConfig.FirstOrDefault(e => StateMap[e.state] && e.state != State.Hover)
-                        ?? elementConfig.FirstOrDefault(e => e.state == State.Default);
+        // Fallback: choose an active non-hover state (when configured) or default.
+    candidate ??= elementConfig.FirstOrDefault(e =>
+                        e.state == State.Hover
+                            ? (!Config.HoverPriority && isHovered)
+                            : StateMap[e.state])
+                    ?? elementConfig.FirstOrDefault(e => e.state == State.Default);
 
         var now = Environment.TickCount64;
         if (candidate != null && candidate.state != State.Default)
