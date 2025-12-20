@@ -52,6 +52,7 @@ public enum Element
     BozjaHud = 41,
     EurekaElementalHud = 42,
     EurekaLogosHud = 43,
+    CosmicAnnouncements = 44
 
 }
 
@@ -80,6 +81,7 @@ public static class ElementUtil
             Element.ScenarioGuide => Language.ElementScenarioGuide,
             Element.IslekeepIndex => Language.ElementIslekeepIndex,
             Element.CosmicExotablet => Language.ElementCosmicExotablet,
+            Element.CosmicAnnouncements => Language.ElementCosmicAnnouncements,
             Element.EurekaElementalHud => Language.ElementEurekaElementalHud,
             Element.EurekaLogosHud => Language.ElementEurekaLogosHud,
             Element.BozjaHud => Language.ElementBozjaHud,
@@ -173,6 +175,7 @@ public static class ElementUtil
             Element.ServerInfo => ["_DTR"],
             Element.IslekeepIndex => ["MJIHud"],
             Element.CosmicExotablet => ["WKSHud"],
+            Element.CosmicAnnouncements => ["WKSAnnounce"],
             Element.OccultCrescentHud => ["MKDInfo"],
             Element.BozjaHud => ["MYCInfo"],
             Element.EurekaElementalHud => ["EurekaElementalHud"],
@@ -256,6 +259,7 @@ public static class ElementUtil
         Element.ServerInfo,
         Element.IslekeepIndex,
         Element.CosmicExotablet,
+        Element.CosmicAnnouncements,
         Element.EurekaElementalHud,
         Element.EurekaLogosHud,
         Element.BozjaHud,
