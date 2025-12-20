@@ -117,49 +117,405 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ChatPluginDisabled" xml:space="preserve">
+    <value>Fader plugin deaktiviert.</value>
+  </data>
+  <data name="ChatPluginEnabled" xml:space="preserve">
+    <value>Fader plugin aktiviert.</value>
+  </data>
+  <data name="AboutAuthor" xml:space="preserve">
+    <value>Autor:</value>
+  </data>
+  <data name="AboutVersion" xml:space="preserve">
+    <value>Version:</value>
+  </data>
+  <data name="AboutIssues" xml:space="preserve">
+    <value>Probleme</value>
+  </data>
+  <data name="AboutThread" xml:space="preserve">
+    <value>Discord Thread</value>
+  </data>
+  <data name="AboutKoFi" xml:space="preserve">
+    <value>Ko-Fi Spende</value>
+  </data>
+  <data name="TabAbout" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="TabSettings" xml:space="preserve">
+    <value>Einstellungen</value>
+  </data>
+  <data name="SettingsGeneralHeader" xml:space="preserve">
+    <value>Allgemeine Einstellungen</value>
+  </data>
+  <data name="SettingsFocusKey" xml:space="preserve">
+    <value>Nutzerfokus Taste:</value>
+  </data>
+  <data name="SettingsFocusKeyTooltip" xml:space="preserve">
+    <value>Diese Taste aktiviert den Nutzerfokus Status.</value>
+  </data>
+  <data name="SettingsFocusHotbarUnlock" xml:space="preserve">
+    <value>Nutzerfokus wenn Kommandomenüs entriegelt sind:</value>
+  </data>
+  <data name="SettingsFocusHotbarUnlockTooltip" xml:space="preserve">
+    <value>Wenn Kommandomenüs oder Kreuz-Kommandomenüs entriegelt sind wird immer der Nutzerfokus Status aktiviert.</value>
+  </data>
+  <data name="SettingsEmoteActivity" xml:space="preserve">
+    <value>Emotes lösen Chataktivität aus</value>
+  </data>
+  <data name="SettingsSystemTrigger" xml:space="preserve">
+    <value>Systemnachrichten aktivieren Chataktivität</value>
+  </data>
+  <data name="SettingsDelay" xml:space="preserve">
+    <value>Standardverzögerung</value>
+  </data>
+  <data name="SettingsDelayTooltip" xml:space="preserve">
+    <value>Zeit die gewartet wird bis ein Element zurück in den "Standard" Status zurückkehrt.</value>
+  </data>
+  <data name="SettingsChatActivityTimeout" xml:space="preserve">
+    <value>Chataktivitäts-Timeout</value>
+  </data>
+  <data name="SettingsMultiSelectionHint" xml:space="preserve">
+    <value>Hinweis: Es können mehrere Elemente gleichzeitig ausgewählt und editiert werden. 
+Benutze dafür beim auswählen die STRG-Taste.
+Die Konfiguration vom ersten ausgewählten Element wird die restlichen überschreiben.</value>
+  </data>
+  <data name="SettingsElementConfiguration" xml:space="preserve">
+    <value>{0} Konfiguration</value>
+  </data>
+  <data name="SettingsOthers" xml:space="preserve">
+    <value>andere</value>
+  </data>
+  <data name="SettingsSyncToElement" xml:space="preserve">
+    <value>Synchronisiere ausgewählte Elemente mit {0}</value>
+  </data>
+  <data name="Seconds" xml:space="preserve">
+    <value>Sekunden</value>
+  </data>
+  <data name="StateEnemyTarget" xml:space="preserve">
+    <value>Feindliches Ziel</value>
+  </data>
+  <data name="StatePlayerTarget" xml:space="preserve">
+    <value>Spieler Ziel</value>
+  </data>
+  <data name="StateNPCTarget" xml:space="preserve">
+    <value>NPC Ziel</value>
+  </data>
+  <data name="StateWeaponUnsheathed" xml:space="preserve">
+    <value>Waffe gezogen</value>
+  </data>
+  <data name="StateInSanctuary" xml:space="preserve">
+    <value>In Ruhebereich</value>
+  </data>
+  <data name="StateInFateArea" xml:space="preserve">
+    <value>In Fategebiet</value>
+  </data>
+  <data name="StateIsMoving" xml:space="preserve">
+    <value>Bewegung</value>
+  </data>
+  <data name="StateIslandSanctuary" xml:space="preserve">
+    <value>Inselparadies</value>
+  </data>
+  <data name="StateChatActivity" xml:space="preserve">
+    <value>Chataktivität</value>
+  </data>
+  <data name="StateChatFocus" xml:space="preserve">
+    <value>Chatfokus</value>
+  </data>
+  <data name="StateUserFocus" xml:space="preserve">
+    <value>Nutzerfokus</value>
+  </data>
+  <data name="StateAltKey" xml:space="preserve">
+    <value>ALT-Taste Fokus</value>
+  </data>
+  <data name="StateCtrlKey" xml:space="preserve">
+    <value>STRG-Taste Fokus</value>
+  </data>
+  <data name="StateShiftKey" xml:space="preserve">
+    <value>SHIFT-Taste Fokus</value>
+  </data>
+  <data name="StateNone" xml:space="preserve">
+    <value>Keine</value>
+  </data>
+  <data name="StateDefault" xml:space="preserve">
+    <value>Standard</value>
+  </data>
+  <data name="StateDuty" xml:space="preserve">
+    <value>Mission</value>
+  </data>
+  <data name="StateCrafting" xml:space="preserve">
+    <value>Handwerken</value>
+  </data>
+  <data name="StateGathering" xml:space="preserve">
+    <value>Sammeln</value>
+  </data>
+  <data name="StateMounted" xml:space="preserve">
+    <value>Beritten</value>
+  </data>
+  <data name="StateCombat" xml:space="preserve">
+    <value>Kampf</value>
+  </data>
+  <data name="SettingsShow" xml:space="preserve">
+    <value>Zeigen</value>
+  </data>
+  <data name="SettingsHide" xml:space="preserve">
+    <value>Verbergen</value>
+  </data>
+  <data name="SettingsUnknown" xml:space="preserve">
+    <value>Unbekannt</value>
+  </data>
+  <data name="ElementHotbar1" xml:space="preserve">
+    <value>Kommandomenü 1</value>
+  </data>
+  <data name="ElementHotbar2" xml:space="preserve">
+    <value>Kommandomenü 2</value>
+  </data>
+  <data name="ElementHotbar3" xml:space="preserve">
+    <value>Kommandomenü 3</value>
+  </data>
+  <data name="ElementHotbar4" xml:space="preserve">
+    <value>Kommandomenü 4</value>
+  </data>
+  <data name="ElementHotbar5" xml:space="preserve">
+    <value>Kommandomenü 5</value>
+  </data>
+  <data name="ElementHotbar6" xml:space="preserve">
+    <value>Kommandomenü 6</value>
+  </data>
+  <data name="ElementHotbar7" xml:space="preserve">
+    <value>Kommandomenü 7</value>
+  </data>
+  <data name="ElementHotbar8" xml:space="preserve">
+    <value>Kommandomenü 8</value>
+  </data>
+  <data name="ElementHotbar9" xml:space="preserve">
+    <value>Kommandomenü 9</value>
+  </data>
+  <data name="ElementHotbar10" xml:space="preserve">
+    <value>Kommandomenü 10</value>
+  </data>
+  <data name="ElementCrossHotbar" xml:space="preserve">
+    <value>Kreuzmenü</value>
+  </data>
+  <data name="ElementPetHotbar" xml:space="preserve">
+    <value>Helfermenü</value>
+  </data>
+  <data name="ElementContextActionHotbar" xml:space="preserve">
+    <value>Spezialmenü</value>
+  </data>
+  <data name="ElementCastbar" xml:space="preserve">
+    <value>Castleiste</value>
+  </data>
+  <data name="ElementInventoryGrid" xml:space="preserve">
+    <value>Inventarschema</value>
+  </data>
+  <data name="ElementScenarioGuide" xml:space="preserve">
+    <value>Szenarioführer</value>
+  </data>
+  <data name="ElementIslekeepIndex" xml:space="preserve">
+    <value>Inselführer</value>
+  </data>
+  <data name="ElementDutyList" xml:space="preserve">
+    <value>Aufgabenliste</value>
+  </data>
+  <data name="ElementServerInformation" xml:space="preserve">
+    <value>Server-Info</value>
+  </data>
+  <data name="ElementMainMenu" xml:space="preserve">
+    <value>Hauptmenü</value>
+  </data>
+  <data name="ElementTargetInfo" xml:space="preserve">
+    <value>Ziel Info</value>
+  </data>
+  <data name="ElementPartyList" xml:space="preserve">
+    <value>Gruppenliste</value>
+  </data>
+  <data name="ElementLimitBreak" xml:space="preserve">
+    <value>Limitrausch</value>
+  </data>
+  <data name="ElementStatusEnhancements" xml:space="preserve">
+    <value>Positive Status</value>
+  </data>
+  <data name="ElementStatusEnfeeblements" xml:space="preserve">
+    <value>Negative Status</value>
+  </data>
+  <data name="ElementStatusOther" xml:space="preserve">
+    <value>Andere Status</value>
+  </data>
+  <data name="ElementUnknown" xml:space="preserve">
+    <value>Unbekannt</value>
+  </data>
+  <data name="ElementJob" xml:space="preserve">
+    <value>Job</value>
+  </data>
+  <data name="ElementCurrency" xml:space="preserve">
+    <value>Währung</value>
+  </data>
+  <data name="ElementQuestLog" xml:space="preserve">
+    <value>Quest Liste</value>
+  </data>
+  <data name="ElementChat" xml:space="preserve">
+    <value>Chat</value>
+  </data>
+  <data name="ElementMinimap" xml:space="preserve">
+    <value>Minikarte</value>
+  </data>
+  <data name="ElementNameplate" xml:space="preserve">
+    <value>Nameplates</value>
+  </data>
+  <data name="ElementParameters" xml:space="preserve">
+    <value>Parameter</value>
+  </data>
+  <data name="ElementStatus" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="ElementTooltipChat" xml:space="preserve">
+    <value>Sollte immer sichtbar sein wenn fokusiert. Kann mit manchen Konfigurationen buggy sein.</value>
+  </data>
+  <data name="ElementTooltipCrosshotbar" xml:space="preserve">
+    <value>Doppeltes Kreuz-Kommandomenü ist immer sichtbar, außer wenn die Option "Doppeltes Kreuz-Kommandomenü an der gleichen Stelle anzeigen" benutzt wird</value>
+  </data>
+  <data name="ElementTooltipActionHotbar" xml:space="preserve">
+    <value>Weitere Aktionen (bspw. auf dem Inselparadies, Gewölbe und bestimmte Kämpfe)</value>
+  </data>
+  <data name="ElementTooltipPetHotbar" xml:space="preserve">
+    <value>Begleiter und Reittier Aktionen</value>
+  </data>
+  <data name="ElementTooltipJob" xml:space="preserve">
+    <value>Job-spezifische UI Elemente</value>
+  </data>
+  <data name="ElementTooltipStatus" xml:space="preserve">
+    <value>Charakter Status (Wenn nicht in 3 Elemente geteilt)</value>
+  </data>
+  <data name="ElementTooltipStatusEnfeeblements" xml:space="preserve">
+    <value>Negativer Charakter Status (Wenn in 3 Elemente geteilt)</value>
+  </data>
+  <data name="ElementTooltipStatusEnhancements" xml:space="preserve">
+    <value>Positiver Charakter Status (Wenn in 3 Elemente geteilt)</value>
+  </data>
+  <data name="ElementTooltipStatusOther" xml:space="preserve">
+    <value>Andere Charakter Status (Wenn in 3 Elemente geteilt)</value>
+  </data>
+  <data name="StateHover" xml:space="preserve">
+    <value>Hover</value>
+  </data>
+  <data name="Milliseconds" xml:space="preserve">
+    <value>Millisekunden</value>
+  </data>
+  <data name="Opacity" xml:space="preserve">
+    <value>Deckkraft</value>
+  </data>
+  <data name="SettingsDisable" xml:space="preserve">
+    <value>Element deaktivieren</value>
+  </data>
+  <data name="SettingsDisableTooltip" xml:space="preserve">
+    <value>Deaktiviert das Element vollständig wenn die Deckkraft unter 0.05 geht.</value>
+  </data>
+  <data name="SettingsEnterTransition" xml:space="preserve">
+    <value>Einblendzeit:</value>
+  </data>
+  <data name="SettingsEnterTransitionTooltip" xml:space="preserve">
+    <value>Zeit in ms die ein Element braucht um eingeblendet zu werden.</value>
+  </data>
+  <data name="SettingsExitTransition" xml:space="preserve">
+    <value>Ausblendzeit:</value>
+  </data>
+  <data name="SettingsExitTransitionTooltip" xml:space="preserve">
+    <value>Zeit in ms die ein Element braucht um ausgeblendet zu werden.</value>
+  </data>
+  <data name="StateWarning" xml:space="preserve">
+    <value>Warnung: Deaktivierte Elemente können nicht gehovered werden!</value>
+  </data>
+  <data name="StateOccupied" xml:space="preserve">
+    <value>Beschäftigt</value>
+  </data>
+  <data name="TabHoverGroups" xml:space="preserve">
+    <value>Hovergruppen</value>
+  </data>
+  <data name="HoverGroupNewGroup" xml:space="preserve">
+    <value>Neue Gruppe</value>
+  </data>
+  <data name="HoverGroupsAddGroup" xml:space="preserve">
+    <value>Gruppe Hinzufügen</value>
+  </data>
+  <data name="HoverGroupsElements" xml:space="preserve">
+    <value>Elemente in der Gruppe:</value>
+  </data>
+  <data name="HoverGroupsHint" xml:space="preserve">
+    <value>Wähle eine Gruppe aus um ihre Details zu editieren.</value>
+  </data>
+  <data name="HoverGroupsTutorialBody1" xml:space="preserve">
+    <value>Wähle eine existierende Gruppe vom linken Menü 
+oder klicke "Gruppe Hinzufügen" um eine zu erstellen.</value>
+  </data>
+  <data name="HoverGroupsTutorialBody2" xml:space="preserve">
+    <value>Nutze die Kontrollkästchen um Elemente der Gruppe hinzuzufügen.</value>
+  </data>
+  <data name="HoverGroupsTutorialBody3" xml:space="preserve">
+    <value>Wenn du über ein Element einer Gruppe hoverst,</value>
+  </data>
+  <data name="HoverGroupsTutorialBody4" xml:space="preserve">
+    <value>wird der Hover-Status für alle Elemente dieser Gruppe aktiviert.</value>
+  </data>
+  <data name="HoverGroupsTutorialHeader" xml:space="preserve">
+    <value>Bedienungsanleitung:</value>
+  </data>
   <data name="SettingsFadeOverride" xml:space="preserve">
-    <value />
+    <value>Override Ein-/Ausblendzeit</value>
+  </data>
+  <data name="StateLeftBumper" xml:space="preserve">
+    <value>Linker Bumper </value>
+  </data>
+  <data name="StateLeftTrigger" xml:space="preserve">
+    <value>Linker Trigger</value>
+  </data>
+  <data name="StateRightBumper" xml:space="preserve">
+    <value>Rechter Bumper</value>
+  </data>
+  <data name="StateRightTrigger" xml:space="preserve">
+    <value>Rechter Trigger</value>
   </data>
   <data name="ElementStatusConditional" xml:space="preserve">
-    <value />
+    <value>Ausgelöste Status</value>
   </data>
   <data name="ElementTooltipStatusConditional" xml:space="preserve">
-    <value />
+    <value>Ausgelöster Charakter Status (Wenn in 4 Elemente geteilt)</value>
   </data>
   <data name="StateGatheringNodeTarget" xml:space="preserve">
-    <value />
+    <value>Sammelstelle Ziel</value>
   </data>
   <data name="ElementCosmicExotablet" xml:space="preserve">
-    <value />
+    <value>Kosmo Exotablet</value>
   </data>
   <data name="ElementAllianceList1" xml:space="preserve">
-    <value />
+    <value>Allianz Liste 1</value>
   </data>
   <data name="ElementAllianceList2" xml:space="preserve">
-    <value />
+    <value>Allianz Liste 2</value>
   </data>
   <data name="ElementOccultCrescentHud" xml:space="preserve">
-    <value />
+    <value>Kreszentia Hud</value>
   </data>
   <data name="ElementBozjaHud" xml:space="preserve">
-    <value />
+    <value>Bozja Hud</value>
   </data>
   <data name="ElementEurekaElementalHud" xml:space="preserve">
-    <value />
+    <value>Magia-Tafel</value>
   </data>
   <data name="ElementEurekaLogosHud" xml:space="preserve">
-    <value />
+    <value>Logos-Kommandos</value>
   </data>
   <data name="ElementExperienceBar" xml:space="preserve">
-    <value />
+    <value>Erfahrungsbalken</value>
   </data>
   <data name="SettingsRelativeOpacityTooltip" xml:space="preserve">
-    <value />
+    <value>Alle Deckkraftwerte vom Plugin werden mit den nativen Bildschirm-layout werten multipliziert.
+Dadurch arbeitet das Plugin in den Grenzen des nativen UIs.
+Bspw: Nativ 60% * Plugin 50% → UI bei 30% Deckkraft.</value>
   </data>
   <data name="SettingsRelativeOpacity" xml:space="preserve">
-    <value />
+    <value>Relative Deckkraft</value>
   </data>
   <data name="ElementCosmicAnnouncements" xml:space="preserve">
-    <value />
+    <value>Kosmo-Erkundung Info</value>
   </data>
 </root>
