@@ -39,6 +39,7 @@ public class Configuration : IPluginConfiguration
     public float EnterTransitionSpeed { get; set; } = 4.0f; // alpha change per frame when fading in (4.0f = 250ms for full transition)
     public float ExitTransitionSpeed { get; set; } = 1.0f; // alpha change per frame when fading out (1.0f = 1 second for full transition)
     public bool RelativeOpacity { get; set; } = false;
+    public bool UseMagitekStratagemIntegration { get; set; } = false;
 
     public void Initialize()
     {
