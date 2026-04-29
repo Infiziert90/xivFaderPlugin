@@ -1,8 +1,6 @@
 using Dalamud.Game.ClientState.Conditions;
 using Dalamud.Game.ClientState.Objects.Enums;
 using Dalamud.Game.Command;
-using Dalamud.Game.Text;
-using Dalamud.Game.Text.SeStringHandling;
 using Dalamud.Interface.Windowing;
 using Dalamud.IoC;
 using Dalamud.Plugin;
@@ -20,6 +18,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Numerics;
+using Dalamud.Game.Chat;
 
 namespace FaderPlugin;
 
@@ -111,7 +110,7 @@ public class Plugin : IDalamudPlugin
             }
         }
 
-        ChatGui.ChatMessage += OnChatMessage;
+        ChatGui.ChatMessageUnhandled += OnChatMessage;
         PluginInterface.LanguageChanged += LanguageChanged;
         Config.OnSave += OnConfigChanged;
 
@@ -183,12 +182,12 @@ public class Plugin : IDalamudPlugin
         ConfigChanged = true;
     }
 
-    private void OnChatMessage(XivChatType type, int _, ref SeString sender, ref SeString message, ref bool isHandled)
+    private void OnChatMessage(IChatMessage message)
     {
         // Don't trigger chat for non-standard chat channels.
-        if (!Constants.ActiveChatTypes.Contains(type)
-            && (!Config.ImportantActivity || !Constants.ImportantChatTypes.Contains(type))
-            && (!Config.EmoteActivity || !Constants.EmoteChatTypes.Contains(type)))
+        if (!Constants.ActiveChatTypes.Contains(message.LogKind)
+            && (!Config.ImportantActivity || !Constants.ImportantChatTypes.Contains(message.LogKind))
+            && (!Config.EmoteActivity || !Constants.EmoteChatTypes.Contains(message.LogKind)))
             return;
 
         LastChatActivity = Environment.TickCount64;
@@ -245,7 +244,7 @@ public class Plugin : IDalamudPlugin
 
         var target = TargetManager.Target;
         UpdateState(State.EnemyTarget, target?.ObjectKind == ObjectKind.BattleNpc);
-        UpdateState(State.PlayerTarget, target?.ObjectKind == ObjectKind.Player);
+        UpdateState(State.PlayerTarget, target?.ObjectKind == ObjectKind.Pc);
         UpdateState(State.NPCTarget, target?.ObjectKind == ObjectKind.EventNpc);
         UpdateState(State.GatheringNodeTarget, target?.ObjectKind == ObjectKind.GatheringPoint);
         UpdateState(State.Crafting, Condition[ConditionFlag.Crafting]);
