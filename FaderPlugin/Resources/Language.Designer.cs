@@ -178,6 +178,15 @@ namespace faderPlugin.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cosmic Exploration Info.
+        /// </summary>
+        internal static string ElementCosmicAnnouncements {
+            get {
+                return ResourceManager.GetString("ElementCosmicAnnouncements", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Cosmic Exotablet.
         /// </summary>
         internal static string ElementCosmicExotablet {

@@ -48,9 +48,12 @@ public static unsafe class Addon
             if (!addons[i].HasValue) continue;
             if (addons[i].AddonNameHash != addonNameHash) continue;
 
+            // all special HudElements that don't have an opacity slider have an alpha value of 0. Elements that do have a slider only go down to ~0,1
+            if (addons[i].Alpha == 0)
+                return 1.0f;
+
             return addons[i].Alpha / 255f;
         }
-
         // fallback if not found (e.g. Chat, since you can't natively adjust its opacity)
         return 1.0f;
     }
