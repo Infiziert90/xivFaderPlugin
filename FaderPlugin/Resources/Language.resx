@@ -516,4 +516,13 @@ E.g., native 60% * plugin 50% → resulting UI at 30%.</value>
   <data name="ElementCosmicAnnouncements" xml:space="preserve">
     <value>Cosmic Exploration Info</value>
   </data>
+  <data name="ElementBozjaLostFindsHolster" xml:space="preserve">
+    <value>Lost Finds Holster</value>
+  </data>
+  <data name="ElementBozjaResistanceRecruitement" xml:space="preserve">
+    <value>Bozja Recruitment</value>
+  </data>
+  <data name="ElementCrucibleHud" xml:space="preserve">
+    <value>Crucible Hud</value>
+  </data>
 </root>
