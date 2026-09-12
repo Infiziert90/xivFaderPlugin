@@ -156,6 +156,7 @@ public static class ElementUtil
                 "JobHudRDM0",
                 "JobHudRPM0", "JobHudRPM1",
                 "JobHudRDB0", "JobHudRDB1",
+                "JobHudXBM0", "JobHudXBM1",
             ],
             Element.PartyList => ["_PartyList"],
             Element.AllianceList1 => ["_AllianceList1"],
