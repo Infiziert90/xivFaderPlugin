@@ -52,8 +52,10 @@ public enum Element
     BozjaHud = 41,
     EurekaElementalHud = 42,
     EurekaLogosHud = 43,
-    CosmicAnnouncements = 44
-
+    CosmicAnnouncements = 44,
+    BozjaLostFindsHolster = 45,
+    BozjaResistanceRecruitement = 46,
+    CrucibleHud = 47
 }
 
 public static class ElementUtil
@@ -85,7 +87,10 @@ public static class ElementUtil
             Element.EurekaElementalHud => Language.ElementEurekaElementalHud,
             Element.EurekaLogosHud => Language.ElementEurekaLogosHud,
             Element.BozjaHud => Language.ElementBozjaHud,
+            Element.BozjaLostFindsHolster => Language.ElementBozjaLostFindsHolster,
+            Element.BozjaResistanceRecruitement => Language.ElementBozjaResistanceRecruitement,
             Element.OccultCrescentHud => Language.ElementOccultCrescentHud,
+            Element.CrucibleHud => Language.ElementCrucibleHud,
             Element.DutyList => Language.ElementDutyList,
             Element.ServerInfo => Language.ElementServerInformation,
             Element.MainMenu => Language.ElementMainMenu,
@@ -156,6 +161,7 @@ public static class ElementUtil
                 "JobHudRDM0",
                 "JobHudRPM0", "JobHudRPM1",
                 "JobHudRDB0", "JobHudRDB1",
+                "JobHudXBM0", "JobHudXBM1",
             ],
             Element.PartyList => ["_PartyList"],
             Element.AllianceList1 => ["_AllianceList1"],
@@ -178,8 +184,11 @@ public static class ElementUtil
             Element.CosmicAnnouncements => ["WKSAnnounce"],
             Element.OccultCrescentHud => ["MKDInfo"],
             Element.BozjaHud => ["MYCInfo"],
+            Element.BozjaLostFindsHolster => ["MYCItemBag"],
+            Element.BozjaResistanceRecruitement => ["MYCBattleAreaInfo"],
             Element.EurekaElementalHud => ["EurekaElementalHud"],
             Element.EurekaLogosHud => ["EurekaMagiciteItemAtherList"],
+            Element.CrucibleHud => ["XBMContentsMainHUD"],
             Element.MainMenu => ["_MainCommand"],
             Element.Chat =>
             [
@@ -263,7 +272,10 @@ public static class ElementUtil
         Element.EurekaElementalHud,
         Element.EurekaLogosHud,
         Element.BozjaHud,
+        Element.BozjaLostFindsHolster,
+        Element.BozjaResistanceRecruitement,
         Element.OccultCrescentHud,
+        Element.CrucibleHud,
         Element.MainMenu,
         Element.Chat,
         Element.Minimap,

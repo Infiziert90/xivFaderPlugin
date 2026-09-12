@@ -518,4 +518,13 @@ Bspw: Nativ 60% * Plugin 50% → UI bei 30% Deckkraft.</value>
   <data name="ElementCosmicAnnouncements" xml:space="preserve">
     <value>Kosmo-Erkundung Info</value>
   </data>
+  <data name="ElementBozjaLostFindsHolster" xml:space="preserve">
+    <value>Kommandoregister</value>
+  </data>
+  <data name="ElementBozjaResistanceRecruitement" xml:space="preserve">
+    <value>Bozja Kampfübersicht</value>
+  </data>
+  <data name="ElementCrucibleHud" xml:space="preserve">
+    <value>Brett der Bestie Hud</value>
+  </data>
 </root>
