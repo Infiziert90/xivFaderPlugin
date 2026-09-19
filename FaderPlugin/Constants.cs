@@ -30,7 +30,8 @@ public static class Constants
         XivChatType.CrossLinkShell6,
         XivChatType.CrossLinkShell7,
         XivChatType.CrossLinkShell8,
-        XivChatType.NoviceNetwork
+        XivChatType.NoviceNetwork,
+        XivChatType.PvPTeam
     ];
 
     public static readonly List<XivChatType> EmoteChatTypes =

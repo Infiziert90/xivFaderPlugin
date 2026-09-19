@@ -151,6 +151,24 @@ namespace faderPlugin.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Lost Finds Holster.
+        /// </summary>
+        internal static string ElementBozjaLostFindsHolster {
+            get {
+                return ResourceManager.GetString("ElementBozjaLostFindsHolster", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bozja Recruitment.
+        /// </summary>
+        internal static string ElementBozjaResistanceRecruitement {
+            get {
+                return ResourceManager.GetString("ElementBozjaResistanceRecruitement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Cast Bar.
         /// </summary>
         internal static string ElementCastbar {
@@ -178,6 +196,15 @@ namespace faderPlugin.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cosmic Exploration Info.
+        /// </summary>
+        internal static string ElementCosmicAnnouncements {
+            get {
+                return ResourceManager.GetString("ElementCosmicAnnouncements", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Cosmic Exotablet.
         /// </summary>
         internal static string ElementCosmicExotablet {
@@ -192,6 +219,15 @@ namespace faderPlugin.Resources {
         internal static string ElementCrossHotbar {
             get {
                 return ResourceManager.GetString("ElementCrossHotbar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Crucible Hud.
+        /// </summary>
+        internal static string ElementCrucibleHud {
+            get {
+                return ResourceManager.GetString("ElementCrucibleHud", resourceCulture);
             }
         }
         
