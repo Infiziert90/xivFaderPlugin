@@ -55,7 +55,8 @@ public enum Element
     CosmicAnnouncements = 44,
     BozjaLostFindsHolster = 45,
     BozjaResistanceRecruitement = 46,
-    CrucibleHud = 47
+    CrucibleHud = 47,
+    NewGamePlusGuide = 48
 }
 
 public static class ElementUtil
@@ -81,6 +82,7 @@ public static class ElementUtil
             Element.ExperienceBar => Language.ElementExperienceBar,
             Element.InventoryGrid => Language.ElementInventoryGrid,
             Element.ScenarioGuide => Language.ElementScenarioGuide,
+            Element.NewGamePlusGuide => Language.ElementNewGamePlusGuide,
             Element.IslekeepIndex => Language.ElementIslekeepIndex,
             Element.CosmicExotablet => Language.ElementCosmicExotablet,
             Element.CosmicAnnouncements => Language.ElementCosmicAnnouncements,
@@ -176,6 +178,7 @@ public static class ElementUtil
             Element.CastBar => ["_CastBar"],
             Element.ExperienceBar => ["_Exp"],
             Element.ScenarioGuide => ["ScenarioTree"],
+            Element.NewGamePlusGuide => ["QuestRedoHud"],
             Element.InventoryGrid => ["_BagWidget"],
             Element.DutyList => ["_ToDoList"],
             Element.ServerInfo => ["_DTR"],
@@ -263,6 +266,7 @@ public static class ElementUtil
         Element.InventoryGrid,
         Element.Currency,
         Element.ScenarioGuide,
+        Element.NewGamePlusGuide,
         Element.QuestLog,
         Element.DutyList,
         Element.ServerInfo,

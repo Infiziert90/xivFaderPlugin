@@ -527,4 +527,7 @@ Bspw: Nativ 60% * Plugin 50% → UI bei 30% Deckkraft.</value>
   <data name="ElementCrucibleHud" xml:space="preserve">
     <value>Brett der Bestie Hud</value>
   </data>
+  <data name="ElementNewGamePlusGuide" xml:space="preserve">
+    <value>Neues Spiel+ Hud</value>
+  </data>
 </root>
