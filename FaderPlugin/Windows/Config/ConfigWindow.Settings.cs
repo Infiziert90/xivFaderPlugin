@@ -1,3 +1,4 @@
+using Dalamud.Bindings.ImGui;
 using Dalamud.Interface;
 using Dalamud.Interface.Colors;
 using Dalamud.Interface.Components;
@@ -6,7 +7,6 @@ using Dalamud.Interface.Utility.Raii;
 using Dalamud.Utility;
 using faderPlugin.Resources;
 using FaderPlugin.Data;
-using Dalamud.Bindings.ImGui;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -138,6 +138,10 @@ public partial class ConfigWindow
                     if (ImGui.SliderFloat("##default_delay", ref idleDelay, 0.1f, 15f, $"%.1f {Language.Seconds}"))
                     {
                         Configuration.DefaultDelay = (int)TimeSpan.FromSeconds(Math.Round(idleDelay, 1)).TotalMilliseconds;
+                    }
+
+                    if (ImGui.IsItemDeactivatedAfterEdit())
+                    {
                         Configuration.Save();
                     }
                 }
@@ -155,6 +159,10 @@ public partial class ConfigWindow
                 if (ImGui.SliderInt("##chat_activity_timeout", ref chatActivityTimeout, 1, 20, $"%d {Language.Seconds}"))
                 {
                     Configuration.ChatActivityTimeout = (int)TimeSpan.FromSeconds(chatActivityTimeout).TotalMilliseconds;
+                }
+
+                if (ImGui.IsItemDeactivatedAfterEdit())
+                {
                     Configuration.Save();
                 }
 
@@ -174,6 +182,10 @@ public partial class ConfigWindow
                 if (Helper.SliderFloatDiscrete("##enter_transition_time_ms", ref enterTransitionTimeMs, 10.0f, 2000.0f, 10.0f, "{0:0} ms"))
                 {
                     Configuration.EnterTransitionSpeed = 1000.0f / enterTransitionTimeMs;
+                }
+
+                if (ImGui.IsItemDeactivatedAfterEdit())
+                {
                     Configuration.Save();
                 }
 
@@ -193,6 +205,10 @@ public partial class ConfigWindow
                 if (Helper.SliderFloatDiscrete("##exit_transition_time_ms", ref exitTransitionTimeMs, 10.0f, 2000.0f, 10.0f, "{0:0} ms"))
                 {
                     Configuration.ExitTransitionSpeed = 1000.0f / exitTransitionTimeMs;
+                }
+
+                if (ImGui.IsItemDeactivatedAfterEdit())
+                {
                     Configuration.Save();
                 }
 
@@ -378,6 +394,10 @@ public partial class ConfigWindow
             if (ImGui.SliderFloat($"##{elementName}-{i}-opacity", ref opacity, 0.0f, 1.0f, $"{Language.Opacity}: %.2f"))
             {
                 SelectedConfig[i].Opacity = opacity;
+            }
+
+            if (ImGui.IsItemDeactivatedAfterEdit())
+            {
                 SaveSelectedElementsConfig();
             }
 
@@ -504,6 +524,10 @@ public partial class ConfigWindow
                 if (Helper.SliderFloatDiscrete($"##{elementName}-fadeIn", ref fadeInTime, 10.0f, 2000.0f, 10.0f, "{0:0} ms"))
                 {
                     Configuration.FadeOverrides[selectedElement].EnterTransitionSpeedOverride = 1000.0f / fadeInTime;
+                }
+
+                if (ImGui.IsItemDeactivatedAfterEdit())
+                {
                     Configuration.Save();
                 }
 
@@ -520,6 +544,10 @@ public partial class ConfigWindow
                 if (Helper.SliderFloatDiscrete($"##{elementName}-fadeOut", ref fadeOutTime, 10.0f, 2000.0f, 10.0f, "{0:0} ms"))
                 {
                     Configuration.FadeOverrides[selectedElement].ExitTransitionSpeedOverride = 1000.0f / fadeOutTime;
+                }
+
+                if (ImGui.IsItemDeactivatedAfterEdit())
+                {
                     Configuration.Save();
                 }
             }

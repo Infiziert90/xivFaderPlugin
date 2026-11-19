@@ -515,6 +515,12 @@ Bspw: Nativ 60% * Plugin 50% → UI bei 30% Deckkraft.</value>
   <data name="SettingsRelativeOpacity" xml:space="preserve">
     <value>Relative Deckkraft</value>
   </data>
+  <data name="SettingsHoverPriority" xml:space="preserve">
+    <value>Hover Priorität</value>
+  </data>
+  <data name="SettingsHoverPriorityTooltip" xml:space="preserve">
+    <value>Der Hover-Status hat Priorität, unabhängig von der Position in der Konfiguration.</value>
+  </data>
   <data name="ElementCosmicAnnouncements" xml:space="preserve">
     <value>Kosmo-Erkundung Info</value>
   </data>
@@ -526,5 +532,8 @@ Bspw: Nativ 60% * Plugin 50% → UI bei 30% Deckkraft.</value>
   </data>
   <data name="ElementCrucibleHud" xml:space="preserve">
     <value>Brett der Bestie Hud</value>
+  </data>
+  <data name="ElementNewGamePlusGuide" xml:space="preserve">
+    <value>Neues Spiel+ Hud</value>
   </data>
 </root>
