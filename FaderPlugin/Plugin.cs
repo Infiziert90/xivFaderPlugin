@@ -1,3 +1,5 @@
+using Dalamud.Bindings.ImGui;
+using Dalamud.Game.Chat;
 using Dalamud.Game.ClientState.Conditions;
 using Dalamud.Game.ClientState.Objects.Enums;
 using Dalamud.Game.Command;
@@ -10,7 +12,6 @@ using FaderPlugin.Animation;
 using FaderPlugin.Data;
 using FaderPlugin.Windows.Config;
 using FFXIVClientStructs.FFXIV.Component.GUI;
-using Dalamud.Bindings.ImGui;
 using Lumina.Excel;
 using Lumina.Excel.Sheets;
 using System;
@@ -18,7 +19,6 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Numerics;
-using Dalamud.Game.Chat;
 
 namespace FaderPlugin;
 
@@ -426,11 +426,11 @@ public class Plugin : IDalamudPlugin
             : null;
 
         // Fallback: choose an active non-hover state (when configured) or default.
-    candidate ??= elementConfig.FirstOrDefault(e =>
-                        e.state == State.Hover
-                            ? (!Config.HoverPriority && isHovered)
-                            : StateMap[e.state])
-                    ?? elementConfig.FirstOrDefault(e => e.state == State.Default);
+        candidate ??= elementConfig.FirstOrDefault(e =>
+                            e.state == State.Hover
+                                ? (!Config.HoverPriority && isHovered)
+                                : StateMap[e.state])
+                        ?? elementConfig.FirstOrDefault(e => e.state == State.Default);
 
         var now = Environment.TickCount64;
         if (candidate != null && candidate.state != State.Default)
