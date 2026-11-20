@@ -311,6 +311,9 @@ Die Konfiguration vom ersten ausgewählten Element wird die restlichen überschr
   <data name="ElementScenarioGuide" xml:space="preserve">
     <value>Szenarioführer</value>
   </data>
+  <data name="ElementNewGamePlusGuide" xml:space="preserve">
+    <value>New Game+-Guide</value>
+  </data>
   <data name="ElementIslekeepIndex" xml:space="preserve">
     <value>Inselführer</value>
   </data>

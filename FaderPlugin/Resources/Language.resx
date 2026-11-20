@@ -310,6 +310,9 @@ Configuration of the element that was selected first will override the rest.</va
   <data name="ElementScenarioGuide" xml:space="preserve">
     <value>Scenario Guide</value>
   </data>
+  <data name="ElementNewGamePlusGuide" xml:space="preserve">
+    <value>New Game+ Guide</value>
+  </data>
   <data name="ElementIslekeepIndex" xml:space="preserve">
     <value>Islekeep's Index</value>
   </data>
