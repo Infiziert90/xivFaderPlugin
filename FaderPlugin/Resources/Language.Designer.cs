@@ -427,6 +427,15 @@ namespace faderPlugin.Resources {
                 return ResourceManager.GetString("ElementNameplate", resourceCulture);
             }
         }
+
+        /// <summary>
+        ///   Looks up a localized string similar to New Game+ Guide.
+        /// </summary>
+        internal static string ElementNewGamePlusGuide {
+            get {
+                return ResourceManager.GetString("ElementNewGamePlusGuide", resourceCulture);
+            }
+        }
         
         /// <summary>
         ///   Looks up a localized string similar to Occult Crescent Hud.
@@ -481,7 +490,7 @@ namespace faderPlugin.Resources {
                 return ResourceManager.GetString("ElementScenarioGuide", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Server Information.
         /// </summary>
